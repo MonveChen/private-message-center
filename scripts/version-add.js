@@ -1,11 +1,3 @@
-/*
- * @Author: Monve
- * @Date: 2021-11-02 11:40:16
- * @LastEditors: Monve
- * @LastEditTime: 2021-11-02 17:11:23
- * @FilePath: /lzb-chat-web/scripts/version-add.js
- */
-
 const execSync = require('child_process').execSync
 const fs = require('fs')
 const path = require('path')
