@@ -1,0 +1,18 @@
+version: '3.7'
+
+networks:
+  nginx_net_bridge:
+    external: true
+
+services:
+  private-message-center:
+    image: monve/private-message-center:1.0.1
+    container_name: private-message-center
+    restart: always
+    env_file:
+      - ~/.data/private-message-center/.env
+    networks:
+      - nginx_net_bridge
+    logging:
+      options:
+        max-size: "100M"

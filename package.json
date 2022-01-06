@@ -1,10 +1,8 @@
 {
   "name": "private-message-center",
-  "version": "0.0.1",
-  "description": "",
-  "author": "",
-  "private": true,
-  "license": "UNLICENSED",
+  "version": "1.0.1",
+  "description": "order to auto send msg to self",
+  "private": false,
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
@@ -18,12 +16,26 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "prepare": "husky install",
+    "docker_start": "node ./dist/main.js",
+    "scp_launch_file": "scp -r ./docker-compose.yml root@server1.dibiaozuitu.com:/root/.data/private-message-center/docker-compose.yml"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MonveChen/private-message-center.git"
+  },
+  "author": "Monve",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/MonveChen/private-message-center/issues"
+  },
+  "homepage": "https://github.com/MonveChen/private-message-center#readme",
   "dependencies": {
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
+    "@tnnevol/robot-ding": "^5.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0"
@@ -41,6 +53,7 @@
     "eslint": "^7.30.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^7.0.4",
     "jest": "27.0.6",
     "prettier": "^2.3.2",
     "supertest": "^6.1.3",
