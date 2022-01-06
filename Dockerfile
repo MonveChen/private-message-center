@@ -10,7 +10,6 @@ RUN npm i --registry https://registry.npm.taobao.org
 
 COPY ./tsconfig.json /root/tsconfig.json
 COPY ./tsconfig.build.json /root/tsconfig.build.json
-COPY ./gulpfile.js /root/gulpfile.js
 COPY ./src /root/src
 
 RUN npm run build && npm run gulp

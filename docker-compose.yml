@@ -6,7 +6,7 @@ networks:
 
 services:
   private-message-center:
-    image: monve/private-message-center:1.0.2
+    image: monve/private-message-center:1.0.3
     container_name: private-message-center
     restart: always
     env_file:
