@@ -2,7 +2,7 @@ const execSync = require('child_process').execSync
 
 const { version, name } = require('../package')
 
-let command = `docker build --pull --rm -f "Dockerfile" -t monve/${name}:${version} "."`
+let command = `docker buildx build --pull --rm -f "Dockerfile" -t monve/${name}:${version} --platform=linux/amd64 "."`
 console.log(command)
 execSync(command)
 
