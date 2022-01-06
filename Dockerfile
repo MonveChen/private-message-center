@@ -12,7 +12,7 @@ COPY ./tsconfig.json /root/tsconfig.json
 COPY ./tsconfig.build.json /root/tsconfig.build.json
 COPY ./src /root/src
 
-RUN npm run build && npm run gulp
+RUN npm run build
 
 RUN rm -rf ./src \
 	&& rm -rf ./tsconfig.json \

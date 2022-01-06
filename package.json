@@ -1,6 +1,6 @@
 {
   "name": "private-message-center",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "order to auto send msg to self",
   "private": false,
   "scripts": {
