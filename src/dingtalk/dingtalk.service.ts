@@ -2,7 +2,7 @@
  * @Author: Monve
  * @Date: 2022-01-06 11:29:50
  * @LastEditors: Monve
- * @LastEditTime: 2022-01-07 15:00:36
+ * @LastEditTime: 2022-01-14 13:34:20
  * @FilePath: /private-message-center/src/dingtalk/dingtalk.service.ts
  */
 import { Injectable } from '@nestjs/common';
@@ -19,7 +19,7 @@ const ding = process.env.WEBHOOK && process.env.SECRET ?
 export class DingtalkService {
   async call({ content, webhook, secret, pv = null }): Promise<DefaultResponse> {
     const r = ck(content); if (r) { return r }
-    content = decode(content);
+    try { content = decode(content); } catch (error) { }
     const dingtalk = webhook && secret ?
       new (RobotDing as any)({ webhook, secret }) :
       !process.env.PV || process.env.PV === pv ? ding : null
